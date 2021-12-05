@@ -5,7 +5,7 @@ def parse_puzzle_input(file: str) -> list[str]:
     """Parse the puzzle input so that each line is an element in a list.
     Then return the list."""
     with open(file) as f:
-        return f.read().splitlines()
+        return f.read().split("\n\n")
 
 
 if __name__ == "__main__":
