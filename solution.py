@@ -9,9 +9,9 @@ def part_two(bingo_input: list[str]) -> int:
 def parse_bingo_input(
     bingo_input: list[str],
 ) -> tuple[set[int], list[list[list[int]]]]:
-    drawn_numbers = {int(num) for num in bingo_input[0].split(",")}
+    numbers_to_draw = {int(num) for num in bingo_input[0].split(",")}
     bingo_boards = [
         [[int(num) for num in row.split()] for row in board.split("\n")]
         for board in bingo_input[1:]
     ]
-    return (drawn_numbers, bingo_boards)
+    return (numbers_to_draw, bingo_boards)
