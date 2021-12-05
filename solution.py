@@ -1,8 +1,37 @@
-BINGO_BOARD_SIZE = 5
-
-
 def part_one(bingo_input: list[str]) -> int:
-    pass
+    numbers_to_draw, bingo_boards = parse_bingo_input(bingo_input)
+    board_size = len(bingo_boards[0])
+
+    # Initialize to first 4 numbers since no winners are possible until at leasts 5 draws
+    numbers_drawn = numbers_to_draw[: board_size - 1]
+    winning_board = None
+
+    for num in numbers_to_draw:
+        if winning_board is not None:
+            break
+        numbers_drawn.append(num)
+        for board in bingo_boards:
+            if winning_board is not None:
+                break
+            for row in board:
+                if set(row).issubset(set(numbers_drawn)):
+                    winning_board = board
+                    break
+            for i in range(board_size):
+                #  Determines column numbers and compares it
+                if set([row[i] for row in board]).issubset(set(numbers_drawn)):
+                    winning_board = board
+                    break
+
+    winning_num = numbers_drawn[-1]
+    unmarked_sum = 0
+
+    for row in winning_board:
+        for num in row:
+            if num not in numbers_drawn:
+                unmarked_sum += num
+
+    return winning_num * unmarked_sum
 
 
 def part_two(bingo_input: list[str]) -> int:
