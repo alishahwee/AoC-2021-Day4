@@ -1,3 +1,6 @@
+BINGO_BOARD_SIZE = 5
+
+
 def part_one(bingo_input: list[str]) -> int:
     pass
 
