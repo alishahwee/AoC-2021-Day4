@@ -2,7 +2,7 @@ def part_one(bingo_input: list[str]) -> int:
     numbers_to_draw, bingo_boards = parse_bingo_input(bingo_input)
     board_size = len(bingo_boards[0])
 
-    # Initialize to first 4 numbers since no winners are possible until at leasts 5 draws
+    # Initialize to first 4 numbers since no winners are possible until at least 5 draws
     numbers_drawn = numbers_to_draw[: board_size - 1]
     winning_board = None
 
@@ -38,7 +38,7 @@ def part_two(bingo_input: list[str]) -> int:
     numbers_to_draw, bingo_boards = parse_bingo_input(bingo_input)
     board_size = len(bingo_boards[0])
 
-    # Initialize to first 4 numbers since no winners are possible until at leasts 5 draws
+    # Initialize to first 4 numbers since no winners are possible until at least 5 draws
     numbers_drawn = numbers_to_draw[: board_size - 1]
     winning_boards = list()
 
